@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
@@ -11,14 +12,18 @@ const Navbar = () => {
     setToken(false);
     localStorage.removeItem("token");
   };
+
   return (
     <div className="flex sticky top-0 bg-white/90 z-10 items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
-      <img
+      
+      {/* ---------- Desktop Logo Updated ---------- */}
+      <h1
         onClick={() => navigate("/")}
-        className="w-44 cursor-pointer"
-        src={assets.logo}
-        alt=""
-      />
+        className="text-3xl font-bold text-primary cursor-pointer tracking-wide"
+      >
+        Appointify
+      </h1>
+
       <ul className="hidden md:flex items-start gap-5 font-medium ">
         <NavLink to="/">
           <li className="py-1 ">HOME</li>
@@ -90,7 +95,12 @@ const Navbar = () => {
           } md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white  transition-all`}
         >
           <div className="flex items-center justify-between px-5 py-6">
-            <img className="w-36" src={assets.logo} alt="" />
+            
+            {/* ---------- Mobile Menu Logo Updated ---------- */}
+            <h1 className="text-2xl font-bold text-primary tracking-wide">
+              Appointify
+            </h1>
+
             <img
               className="w-6"
               onClick={() => setShowMenu(false)}

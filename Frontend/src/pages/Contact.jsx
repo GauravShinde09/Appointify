@@ -19,13 +19,13 @@ const Contact = () => {
         <div className="flex flex-col justify-center items-start gap-6">
           <p className="font-semibold text-lg text-gray-600 ">Our OFFICE</p>
           <p className="text-gray-500">
-            54709 Willms Station <br /> Suite 350, Washington, USA
+            120 W 45th Street <br /> New York, NY 10036, USA
           </p>
           <p className="text-gray-500">
-            Tel: (415) 555‑0132 <br /> Email: help@prescripto.com
+            Tel: +1 (212) 555-0199 <br /> Email: support@appointify.care
           </p>
           <p className="font-semibold text-lg text-gray-600 ">
-            Careers at PRESCRIPTO
+            Careers at APPOINTIFY
           </p>
           <p className="text-gray-500">
             Learn more about our teams and job openings.

@@ -9,11 +9,13 @@ const MyAppointments = () => {
   const { backendUrl, token, getDoctorsData } = useContext(AppContext);
   const [appointments, setAppointments] = useState([]);
   const navigate = useNavigate();
+  
   useEffect(() => {
     if (token) {
       getUserAppointments();
     }
   }, [token]);
+
   const months = [
     "",
     "Jan",
@@ -155,8 +157,11 @@ const MyAppointments = () => {
               </p>
               <p>{item?.docData?.speciality}</p>
               <p className="text-zinc-700 font-medium mt-1">Address:</p>
+              
+              {/* BUG FIXED HERE: Changed second line to line2 */}
               <p className="text-xs">{item?.docData?.address?.line1}</p>
-              <p className="text-xs">{item?.docData?.address?.line1}</p>
+              <p className="text-xs">{item?.docData?.address?.line2}</p>
+              
               <p className="text-xs mt-1">
                 <span className="text-sm text-neutral-700 font-medium">
                   Date & Time :
@@ -172,25 +177,28 @@ const MyAppointments = () => {
                   Paid
                 </button>
               )}
+              
+              {/* BUG FIXED HERE: Replaced broken Razorpay call with a clean Toast notification */}
               {!item.cancelled && !item.payment && !item.isCompleted && (
                 <button
-                  onClick={() => appointmentRazorpay(item?._id)}
-                  className="text-sm text-stone-500 text-center sm:min-w-48 py-2 border hover:bg-primary hover:text-white tranisal duration-300"
+                  onClick={() => toast.info("Payment gateway integration is currently in Test Mode for this portfolio project.")}
+                  className="text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded hover:bg-primary hover:text-white transition-all duration-300"
                 >
                   Pay Online
                 </button>
               )}
+              
               {!item.cancelled && !item.isCompleted && (
                 <button
                   onClick={() => cancelAppointment(item._id)}
-                  className="text-sm text-stone-500 text-center sm:min-w-48 py-2 border hover:bg-red-600 hover:text-white tranisal duration-300"
+                  className="text-sm text-stone-500 text-center sm:min-w-48 py-2 border hover:bg-red-600 hover:text-white transition-all duration-300"
                 >
                   Cancel Appointment
                 </button>
               )}
 
               {item.cancelled && !item.isCompleted && (
-                <button className="sm:min-w-48 py-2 border border-red-500 rounded tex-red-500">
+                <button className="sm:min-w-48 py-2 border border-red-500 rounded text-red-500">
                   Appointment cancelled
                 </button>
               )}
