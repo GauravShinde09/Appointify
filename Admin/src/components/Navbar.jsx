@@ -18,11 +18,12 @@ const Navbar = () => {
   return (
     <div className="flex sticky top-0 bg-white/90 z-10 justify-between items-center px-4 py-2 sm:px-10 border-b bg-white">
       <div className="flex items-center gap-2 text-xs">
-        <img
-          className="w-96 sm:w-40 cursor-pointer"
-          src={assets.admin_logo}
-          alt=""
-        />
+        
+        
+        <h1 className="text-2xl font-bold text-primary cursor-pointer sm:w-40">
+          Appointify
+        </h1>
+
         <p className="border px-2.5 py-0.5 rounded-full border-gray-600 text-gray-600">
           {aToken ? "Admin" : "Doctor"}
         </p>
